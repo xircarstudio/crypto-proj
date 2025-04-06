@@ -15,7 +15,6 @@ export default function Navbar() {
   const location = useLocation();
   const sidebarRef = useRef(null);
 
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -27,14 +26,12 @@ export default function Navbar() {
       }
     };
 
-    // Add when mounted
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Return cleanup function to remove listener
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [open]); // Only re-run if open state changes
+  }, [open]);
 
   return (
     <>
@@ -54,7 +51,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Added ref to the sidebar */}
       <div
         ref={sidebarRef}
         className={`hidden md:flex fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
@@ -81,7 +77,6 @@ export default function Navbar() {
         </Button>
       </div>
 
-      {/* Overlay when sidebar is open */}
       {open && (
         <div className="hidden md:block fixed inset-0 bg-black bg-opacity-50 z-30" />
       )}
