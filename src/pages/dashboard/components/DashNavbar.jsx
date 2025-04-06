@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FiHome, FiUser, FiSettings, FiMenu, FiX } from "react-icons/fi";
 import Theme from "../../../components/common/Theme";
 import Button from "../../../components/common/buttons/Button";
+import Modal from "../../../components/ui/Modal";
 
 const navItems = [
   { name: "Home", path: "/", icon: <FiHome /> },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const sidebarRef = useRef(null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -75,6 +77,9 @@ export default function Navbar() {
         <Button type="primaryDark" onClick={() => alert("Button clicked!")}>
           Click Me
         </Button>
+        <Button type="primary" onClick={() => setModalOpen(true)}>
+          Open Modal
+        </Button>
       </div>
 
       {open && (
@@ -95,6 +100,19 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        title="Reusable Modal"
+      >
+        <p>This is a reusable modal component with custom content.</p>
+        <div className="mt-4 text-right">
+          <Button type="secondary" onClick={() => setModalOpen(false)}>
+            Close
+          </Button>
+        </div>
+      </Modal>
     </>
   );
 }
