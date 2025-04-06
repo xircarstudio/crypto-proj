@@ -1,13 +1,11 @@
-import { useState } from "react";
 import "./index.css";
-import Dashboard from "./components/Dashboard";
+import Home from "./pages/public/home/Home";
+import Routing from "./routes/index";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Dashboard />
+      <Routing />
     </>
   );
 }
