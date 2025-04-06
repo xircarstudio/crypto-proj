@@ -1,10 +1,12 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
 @theme static {
   --color-primary: #e0f64b;
   --color-secondary: var(--color-blue-500);
   --text-grey: #848484;
-  --text: #b8b8b8;
-  --body: #171717;
+  --color-text: #b8b8b8;
+  --color-body: #171717;
   --body-grey: #202020;
   --text-xs: 0.75rem;
   --text-sm: 14px;
@@ -13,13 +15,21 @@
 }
 
 @layer base {
+  /* Light mode (default) */
   body {
-    background: var(--body);
-    color: var(--text);
+    background: white;
+    color: var(--color-body);
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.6;
   }
+
+  /* Dark mode */
+  html.dark body {
+    background: var(--color-body);
+    color: var(--color-text);
+  }
+
   .xs-text {
     font-size: var(--text-xs);
   }
@@ -40,11 +50,34 @@
 
   .btn-primary {
     background: var(--color-primary);
-    color: var(--body);
+    color: var(--color-body);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-body);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 
   .btn-secondary {
-    background: var(--body);
+    background: var(--color-body);
     color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary);
+    color: var(--color-body);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
   }
 }

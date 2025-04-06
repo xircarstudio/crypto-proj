@@ -6,6 +6,7 @@ import MainLayout from "../components/layout/MainLayout";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import Profile from "../pages/dashboard/profile/Profile";
+import About from "../pages/public/about/About";
 
 export default function Routing() {
   return (
@@ -14,6 +15,7 @@ export default function Routing() {
         {/* Public Routes */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
 
