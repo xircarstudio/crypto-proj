@@ -53,7 +53,7 @@ export default function Navbar() {
 
       <div
         ref={sidebarRef}
-        className={`hidden md:flex text-md fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-900 dark:text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
+        className={`hidden md:flex  text-md fixed top-0 left-0 h-full w-80 bg-white dark:bg-body-grey dark:text-white p-9 flex-col gap-6 transition-transform duration-300 z-40 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -78,7 +78,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="hidden md:block fixed inset-0 bg-white dark:bg-black bg-opacity-50 z-30" />
+        <div className="hidden md:block fixed inset-0 bg-gray-300 dark:bg-black opacity-50 z-30" />
       )}
 
       <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-900 text-white flex justify-around items-center py-2 z-50 shadow-lg">
