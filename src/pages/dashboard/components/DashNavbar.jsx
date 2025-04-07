@@ -4,11 +4,14 @@ import { FiHome, FiUser, FiSettings, FiMenu, FiX } from "react-icons/fi";
 import Theme from "../../../components/common/Theme";
 import Button from "../../../components/common/buttons/Button";
 import Modal from "../../../components/ui/Modal";
+import { FaEllipsisH } from "react-icons/fa";
+import NavPopup from "./NavPopup";
 
 const navItems = [
   { name: "Home", path: "/", icon: <FiHome /> },
   { name: "Profile", path: "/profile", icon: <FiUser /> },
   { name: "Settings", path: "/settings", icon: <FiSettings /> },
+  { name: "More", icon: <FaEllipsisH />, popup: true },
 ];
 
 export default function Navbar() {
@@ -16,6 +19,13 @@ export default function Navbar() {
   const location = useLocation();
   const sidebarRef = useRef(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
+
+  const handleItemClick = (item) => {
+    if (item.popup) {
+      setShowPanel(true);
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -55,21 +65,24 @@ export default function Navbar() {
 
       <div
         ref={sidebarRef}
-        className={`hidden md:flex  text-md fixed top-0 left-0 h-full w-80 bg-white dark:bg-body-grey dark:text-white p-9 flex-col gap-6 transition-transform duration-300 z-40 ${
-          open ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`hidden md:flex gap-10 fixed top-0 left-0 h-full w-80 bg-white dark:bg-body-grey
+            p-9 flex-col  transition-transform duration-300 z-40 ${
+              open ? "translate-x-0" : "-translate-x-full"
+            }`}
       >
         <h2 className="text-xl font-bold mb-6">Menu</h2>
         {navItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
-            className={`flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition ${
-              location.pathname === item.path ? "bg-gray-700 font-semibold" : ""
+            className={`flex items-center gap-3 p-2 rounded text-gray-700 dark:text-grey hover:text-black dark:hover:text-white transition text-md font-bold ${
+              location.pathname === item.path
+                ? "text-primary font-semibold"
+                : ""
             }`}
             onClick={() => setOpen(false)}
           >
-            {item.icon}
+            <span className="text-2xl"> {item.icon}</span>
             {item.name}
           </Link>
         ))}
@@ -86,19 +99,35 @@ export default function Navbar() {
         <div className="hidden md:block fixed inset-0 bg-gray-300 dark:bg-black opacity-50 z-30" />
       )}
 
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-900 text-white flex justify-around items-center py-2 z-50 shadow-lg">
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`flex flex-col items-center text-sm ${
-              location.pathname === item.path ? "text-blue-400" : "text-white"
-            }`}
-          >
-            {item.icon}
-            <span>{item.name}</span>
-          </Link>
-        ))}
+      <div
+        className="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-body  
+      text-gray-700 dark:text-grey hover:text-black dark:hover:text-white flex justify-around items-center py-2 z-50 shadow-lg"
+      >
+        {navItems.map((item, index) =>
+          item.popup ? (
+            <button
+              key={index}
+              onClick={() => handleItemClick(item)}
+              className="flex flex-col items-center text-sm focus:outline-none"
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </button>
+          ) : (
+            <Link
+              key={index}
+              to={item.path}
+              className={`flex flex-col items-center text-sm  ${
+                location.pathname === item.path
+                  ? "text-body dark:text-white"
+                  : "text-gray-700 dark:text-grey hover:text-black dark:hover:text-white"
+              }`}
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          )
+        )}
       </div>
 
       <Modal
@@ -106,13 +135,40 @@ export default function Navbar() {
         onClose={() => setModalOpen(false)}
         title="Reusable Modal"
       >
-        <p>This is a reusable modal component with custom content.</p>
+        <p>This is a reusab modal component with custom content.</p>
         <div className="mt-4 text-right">
           <Button type="secondary" onClick={() => setModalOpen(false)}>
             Close
           </Button>
         </div>
       </Modal>
+
+      <div
+        className={`md:hidden fixed bottom-0 left-0 w-full  mx-auto
+           bg-white dark:bg-body-grey rounded-t-xl p-4 z-50  transform transition-transform duration-300 ${
+             showPanel ? "-translate-y-12" : "translate-y-full"
+           }`}
+      >
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-semibold">More Options</h3>
+          <button
+            onClick={() => setShowPanel(false)}
+            className="text-gray-600 dark:text-gray-300 hover:text-red-500 transition"
+          >
+            Close
+          </button>
+        </div>
+        <p className="text-sm text-gray-700 dark:text-gray-200">
+          <NavPopup />
+        </p>
+      </div>
+
+      {showPanel && (
+        <div
+          onClick={() => setShowPanel(false)}
+          className="fixed inset-0 bg-black/30 z-40 md:hidden"
+        />
+      )}
     </div>
   );
 }

@@ -4,7 +4,7 @@
 @theme static {
   --color-primary: #e0f64b;
   --color-secondary: var(--color-blue-500);
-  --text-grey: #848484;
+  --color-grey: #848484;
   --color-text: #b8b8b8;
   --color-body: #171717;
   --color-body-grey: #202020;

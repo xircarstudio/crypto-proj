@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../../components/ui/Card";
 import { FaRegSmile } from "react-icons/fa";
 import Accordion from "../../../components/ui/Accordion";
 import AccordionItem from "../../../components/ui/AccordionItem";
+import Modal from "../../../components/ui/Modal";
+import Button from "../../../components/common/buttons/Button";
 
 const Dashboard = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
       <Card
@@ -47,9 +50,36 @@ const Dashboard = () => {
             <AccordionItem index={2} title="Can I add anything inside?">
               Of course! You can add text, images, links, or even other
               components.
+              <Modal
+                isOpen={isModalOpen}
+                onClose={() => setModalOpen(false)}
+                title="Reusable Modal"
+              >
+                <p>This is a reusable modal component with custom content.</p>
+                <div className="mt-4 text-right">
+                  <Button type="secondary" onClick={() => setModalOpen(false)}>
+                    Close
+                  </Button>
+                </div>
+              </Modal>
             </AccordionItem>
           </Accordion>
         </div>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setModalOpen(false)}
+          title="Reusable Modal"
+        >
+          <p>This is a reusable modal component with custom content.</p>
+          <div className="mt-4 text-right">
+            <Button type="secondary" onClick={() => setModalOpen(false)}>
+              Close
+            </Button>
+          </div>
+        </Modal>
+        <Button type="primary" onClick={() => setModalOpen(true)}>
+          Open Modal
+        </Button>
       </Card>
     </div>
   );
