@@ -36,7 +36,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <>
+    <div className="pt-4 md:pt-10 px-4 md:px-5 xl:px-15">
       <div className="bg-white dark:bg-black flex flex-row justify-between items-center">
         <div>
           <h1 className="text-md text-amber-50 dark:text-amber-300">
@@ -113,6 +113,6 @@ export default function Navbar() {
           </Button>
         </div>
       </Modal>
-    </>
+    </div>
   );
 }

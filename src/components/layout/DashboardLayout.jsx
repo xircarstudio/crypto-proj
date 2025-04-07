@@ -5,9 +5,9 @@ import DashNavbar from "../../pages/dashboard/components/DashNavbar";
 const DashboardLayout = () => {
   return (
     <div>
-      <div className="public-layout">
+      <div>
         <DashNavbar />
-        <main>
+        <main className="px-4 md:px-5 xl:px-15 mt-4 md:mt-8">
           <Outlet />
         </main>
       </div>
