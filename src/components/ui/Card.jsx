@@ -3,7 +3,7 @@ import React from "react";
 function Card({ title, children, icon, footer, className = "" }) {
   return (
     <div
-      className={`bg-white dark:bg-body shadow-md rounded-lg p-6 transition-colors duration-300 w-full  transition-all duration-300 ease-in-out   ${className}`}
+      className={`bg-white dark:bg-body shadow-md rounded-lg p-6 transition-colors duration-300 w-full  ease-in-out   ${className}`}
     >
       {icon && <div className="mb-4">{icon}</div>}
       {title && (

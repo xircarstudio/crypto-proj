@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../../../components/ui/Card";
 import { FaRegSmile } from "react-icons/fa";
 import Accordion from "../../../components/ui/Accordion";
+import AccordionItem from "../../../components/ui/AccordionItem";
 
 const Dashboard = () => {
   return (
@@ -36,16 +37,17 @@ const Dashboard = () => {
         className="border border-gray-200 dark:border-gray-700"
       >
         <div className="max-w-md mx-auto mt-10 p-4">
-          <Accordion title="What is this?">
-            This is a reusable accordion built with React and Tailwind CSS.
-          </Accordion>
-
-          <Accordion title="Is it animated?">
-            Yes! The open/close animation uses Tailwind's transition utilities.
-          </Accordion>
-
-          <Accordion title="Can I put anything inside?">
-            Absolutely. You can include text, images, links—anything valid JSX.
+          <Accordion>
+            <AccordionItem index={0} title="What is this?">
+              This is a reusable accordion with only one open at a time.
+            </AccordionItem>
+            <AccordionItem index={1} title="Is it animated?">
+              Yes! It's using Tailwind transitions and conditional classes.
+            </AccordionItem>
+            <AccordionItem index={2} title="Can I add anything inside?">
+              Of course! You can add text, images, links, or even other
+              components.
+            </AccordionItem>
           </Accordion>
         </div>
       </Card>
