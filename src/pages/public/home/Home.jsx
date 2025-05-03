@@ -1,10 +1,16 @@
 import React from "react";
+import Hero from "./Hero";
 
 const Home = () => {
   return (
-    <div>
-      <div className="text-body">bad egg</div>{" "}
-    </div>
+    <>
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="how">
+        <Hero />
+      </section>
+    </>
   );
 };
 

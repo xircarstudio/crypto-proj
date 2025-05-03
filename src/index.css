@@ -3,6 +3,8 @@
 
 @theme static {
   --color-primary: #e0f64b;
+  --color-home: #069a41;
+  --color-home-bg: #07180e;
   --color-secondary: var(--color-blue-500);
   --color-grey: #848484;
   --color-text: #b8b8b8;
@@ -85,5 +87,13 @@
     color: var(--color-body);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
+  }
+
+  .btn-home {
+    background: var(--color-home);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    border-radius: 72px;
   }
 }
