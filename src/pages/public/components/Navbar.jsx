@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import CryptoStack from "../../../assets/home/crypto-stack.svg";
+import Naira from "../../../assets/home/naira.svg";
+import MonkeyBnb from "../../../assets/home/monkey-bnb.png";
+import CatNaira from "../../../assets/home/cat-naira.png";
+import { FiHome, FiMenu, FiSettings, FiUser, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import { FiHome, FiUser, FiSettings, FiMenu, FiX } from "react-icons/fi";
 import Theme from "../../../components/common/Theme";
 import Button from "../../../components/common/buttons/Button";
-
-const navItems = [
-  { name: "Home", path: "/", icon: <FiHome /> },
-  { name: "Profile", path: "/profile", icon: <FiUser /> },
-  { name: "Settings", path: "/settings", icon: <FiSettings /> },
+const navLinks = [
+  { id: "home", label: "Home" },
+  { id: "how", label: "How it works" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact us" },
 ];
-
-export default function Navbar() {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const sidebarRef = useRef(null);
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -33,68 +36,108 @@ export default function Navbar() {
     };
   }, [open]);
 
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 150;
+      for (const link of navLinks) {
+        const section = document.getElementById(link.id);
+        if (
+          section &&
+          section.offsetTop <= scrollY &&
+          section.offsetTop + section.offsetHeight > scrollY
+        ) {
+          setActive(link.id);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <div className="bg-white dark:bg-black flex flex-row justify-between items-center">
-        <div>
-          <h1 className="text-md text-amber-50 dark:text-amber-300">
-            DashBoard
-          </h1>
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-home-bg/90 backdrop-blur-md flex justify-between items-center px-10 py-4"
+      >
+        <div className="w-24 h-6 bg-gray-300 rounded " />
+
+        <div className="hidden md:flex space-x-6 text-sm relative">
+          {navLinks.map((link) => (
+            <div
+              key={link.id}
+              className="relative cursor-pointer"
+              onClick={() => {
+                document
+                  .getElementById(link.id)
+                  ?.scrollIntoView({ behavior: "smooth" });
+                setActive(link.id);
+              }}
+            >
+              {active === link.id && (
+                <motion.div
+                  layoutId="activeLink"
+                  className="absolute -bottom-1 left-0 right-0 h-[2px] bg-green-500 rounded"
+                />
+              )}
+              <span
+                className={`transition-colors ${
+                  active === link.id ? "text-white" : "text-gray-400"
+                }`}
+              >
+                {link.label}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="hidden md:flex z-50">
+
+        <div className="hidden md:flex">
+          <Button type="home">Login</Button>
+        </div>
+
+        <div className="block md:hidden z-50">
           <button
             onClick={() => setOpen((prev) => !prev)}
-            className="text-body dark:text-primary text-3xl"
+            className="text-white text-3xl"
           >
             {open ? <FiX /> : <FiMenu />}
           </button>
         </div>
-      </div>
+      </motion.nav>
 
       <div
         ref={sidebarRef}
-        className={`hidden md:flex fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
+        className={`flex md:hidden fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <h2 className="text-xl font-bold mb-6">Menu</h2>
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition ${
-              location.pathname === item.path ? "bg-gray-700 font-semibold" : ""
-            }`}
-            onClick={() => setOpen(false)}
+        {navLinks.map((link) => (
+          <div
+            key={link.id}
+            className="text-white py-2 px-3 rounded hover:bg-gray-700"
+            onClick={() => {
+              document
+                .getElementById(link.id)
+                ?.scrollIntoView({ behavior: "smooth" });
+              setOpen(false);
+            }}
           >
-            {item.icon}
-            {item.name}
-          </Link>
+            {link.label}
+          </div>
         ))}
         <Theme />
         <Button type="primaryDark" onClick={() => alert("Button clicked!")}>
           Click Me
         </Button>
       </div>
-
-      {open && (
-        <div className="hidden md:block fixed inset-0 bg-black bg-opacity-50 z-30" />
-      )}
-
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-gray-900 text-white flex justify-around items-center py-2 z-50 shadow-lg">
-        {navItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`flex flex-col items-center text-sm ${
-              location.pathname === item.path ? "text-blue-400" : "text-white"
-            }`}
-          >
-            {item.icon}
-            <span>{item.name}</span>
-          </Link>
-        ))}
-      </div>
     </>
   );
-}
+};
+
+export default Navbar;
