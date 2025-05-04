@@ -143,25 +143,6 @@
     font-family: "Satoshi", sans-serif;
     font-weight: 500;
   }
-  @media (max-width: 640px) {
-    .home-header {
-      font-size: 32px;
-      line-height: 36px;
-    }
-
-    .home-sub-header {
-      font-size: 24px;
-      line-height: 42px;
-    }
-
-    .home-text {
-      font-size: 16px;
-    }
-    .home-text-sm {
-      font-size: 12px;
-    }
-  }
-
   @media (max-width: 1024px) {
     .home-header {
       font-size: 40px;
@@ -178,6 +159,24 @@
     }
     .home-text-sm {
       font-size: 16px;
+    }
+  }
+  @media (max-width: 640px) {
+    .home-header {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .home-sub-header {
+      font-size: 24px;
+      line-height: 42px;
+    }
+
+    .home-text {
+      font-size: 16px;
+    }
+    .home-text-sm {
+      font-size: 12px;
     }
   }
 }
