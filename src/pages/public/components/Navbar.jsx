@@ -34,25 +34,6 @@ const Navbar = () => {
 
   const [active, setActive] = useState("home");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY + 150;
-      for (const link of navLinks) {
-        const section = document.getElementById(link.id);
-        if (
-          section &&
-          section.offsetTop <= scrollY &&
-          section.offsetTop + section.offsetHeight > scrollY
-        ) {
-          setActive(link.id);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -83,7 +64,7 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm transition-colors duration-300 ${
+        className={`satoshi fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm transition-colors duration-300 ${
           scrolled ? "bg-home-bg" : ""
         }`}
       >
@@ -94,7 +75,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <div
                 key={link.id}
-                className="relative cursor-pointer"
+                className="relative cursor-pointer "
                 onClick={() => {
                   document
                     .getElementById(link.id)
