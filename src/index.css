@@ -56,6 +56,11 @@
     transition: var(--transition);
   }
 
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+
   .btn-primary {
     background: var(--color-primary);
     color: var(--color-body);
@@ -89,11 +94,47 @@
     transform: translateY(-2px);
   }
 
+  .satoshi {
+    font-family: "Satoshi", sans-serif;
+  }
+
   .btn-home {
     background: var(--color-home);
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
     border-radius: 72px;
+    font-family: "Satoshi", sans-serif;
+  }
+
+  .home-text {
+    font-size: 24px;
+    color: #818181;
+    font-family: "Satoshi", sans-serif;
+  }
+
+  .home-text-sm {
+    font-size: 20px;
+    color: #818181;
+    font-family: "Satoshi", sans-serif;
+  }
+  .home-text-xs {
+    font-size: 14px;
+    color: #818181;
+    font-family: "Satoshi", sans-serif;
+  }
+
+  .home-sub-header {
+    font-size: 32px;
+    line-height: 42px;
+    color: black;
+    font-family: "Satoshi", sans-serif;
+  }
+  .home-header {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -2%;
+    color: #101928;
+    font-family: "Satoshi", sans-serif;
   }
 }
