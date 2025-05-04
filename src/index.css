@@ -5,6 +5,8 @@
   --color-primary: #e0f64b;
   --color-home: #069a41;
   --color-home-bg: #07180e;
+  --color-home-mute: #818181;
+  --color-home-text: #1b1b1b;
   --color-secondary: var(--color-blue-500);
   --color-grey: #848484;
   --color-text: #b8b8b8;
@@ -111,17 +113,20 @@
     font-size: 24px;
     color: #818181;
     font-family: "Satoshi", sans-serif;
+    font-weight: 400;
   }
 
   .home-text-sm {
     font-size: 20px;
     color: #818181;
     font-family: "Satoshi", sans-serif;
+    font-weight: 400;
   }
   .home-text-xs {
     font-size: 14px;
     color: #818181;
     font-family: "Satoshi", sans-serif;
+    font-weight: 400;
   }
 
   .home-sub-header {
@@ -136,5 +141,43 @@
     letter-spacing: -2%;
     color: #101928;
     font-family: "Satoshi", sans-serif;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .home-header {
+      font-size: 32px;
+      line-height: 36px;
+    }
+
+    .home-sub-header {
+      font-size: 24px;
+      line-height: 42px;
+    }
+
+    .home-text {
+      font-size: 16px;
+    }
+    .home-text-sm {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .home-header {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    .home-sub-header {
+      font-size: 28px;
+      line-height: 42px;
+    }
+
+    .home-text {
+      font-size: 20px;
+    }
+    .home-text-sm {
+      font-size: 16px;
+    }
   }
 }
