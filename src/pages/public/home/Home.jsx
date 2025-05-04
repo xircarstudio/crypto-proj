@@ -1,26 +1,34 @@
 import React from "react";
 import Hero from "./Hero";
 import How from "./How";
+import Testimonial from "./Testimonial";
+import Faq from "./Faq";
+import Cta from "./Cta";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <main>
-      <section id="home">
+    <>
+      <section id="home" className="w-full">
         <Hero />
       </section>
       <section id="how">
         <How />
       </section>
-      <section id="faq">
-        <How />
-      </section>
-      <section id="contact">
-        <How />
-      </section>
+
       <section id="">
-        <How />
+        <Testimonial />
       </section>
-    </main>
+      <section id="faq">
+        <Faq />
+      </section>
+
+      <section id="contact">
+        <Cta />
+      </section>
+
+      <Footer />
+    </>
   );
 };
 
