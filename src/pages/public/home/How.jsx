@@ -5,10 +5,10 @@ import BoredApe from "../../../assets/home/boredape.jpg";
 export default function How() {
   return (
     <div className="bg-white">
-      <h2 className="home-header font-bold text-gray-800 text-center p-12">
+      <h2 className="home-header font-bold  text-center p-8 lg:p-12">
         How it works
       </h2>
-      <div className="  flex flex-col md:flex-row items-center justify-center px-4">
+      <div className="  flex flex-col md:flex-row items-center justify-center px-4 sm:px-7">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -47,10 +47,11 @@ export default function How() {
               </p>
             </div>
           </div>
-
-          <Button type="home" className="mt-4 ">
-            Start Swapping Now
-          </Button>
+          <div className=" flex justify-center md:justify-start items-center">
+            <Button type="home" className="mt-4 ">
+              Start Swapping Now
+            </Button>
+          </div>
         </motion.div>
 
         <motion.div

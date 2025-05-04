@@ -8,13 +8,12 @@ import Navbar from "../components/Navbar";
 import Button from "../../../components/common/buttons/Button";
 const Hero = () => {
   return (
-    <div className="min-h-screen bg-home-bg text-white px-6 pt-12 flex flex-col items-center justify-center text-center relative">
-      <Navbar />
+    <div className="min-h-[80%] lg:min-h-screen min-w-full bg-home-bg text-white px-6 pt-12 flex flex-col items-center justify-center text-center relative">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="max-w-3xl mt-24"
+        className="max-w-3xl mt-18 lg:mt-24"
       >
         <div className="satoshi text-4xl md:text-5xl lg:text-6xl font-bold leading-tight flex text-center justify-center items-center flex-wrap w-full max-w-[548px] mx-auto">
           Instant Crypto
