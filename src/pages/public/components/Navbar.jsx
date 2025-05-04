@@ -64,11 +64,11 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`satoshi fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-sm transition-colors duration-300 ${
+        className={`satoshi fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-lg transition-colors duration-300 ${
           scrolled ? "bg-home-bg" : ""
         }`}
       >
-        <div className="max-w-[1200px] mx-auto flex justify-between items-center px-6 md:px-10 py-4 md:py-8">
+        <div className="max-w-[1200px] mx-auto flex justify-between items-center px-6 md:px-10 py-4 md:py-5">
           <div className="w-24 h-6 bg-gray-300 rounded" />
 
           <div className="hidden md:flex space-x-6 text-sm relative">

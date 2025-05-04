@@ -3,7 +3,7 @@ import Navbar from "../../pages/public/components/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="public-layout">
+    <div className="bg-white">
       <Navbar />
       <main>
         <Outlet />
