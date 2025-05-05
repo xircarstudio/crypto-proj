@@ -1,5 +1,5 @@
 import React from "react";
-import Theme from "/src/components/common/Theme";
+import Theme from "@/components/common/Theme";
 
 const NavPopup = () => {
   const cardData = [

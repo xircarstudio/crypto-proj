@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FiHome, FiMenu, FiSettings, FiUser, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import Theme from "/src/components/common/Theme";
-import Button from "/src/components/common/buttons/Button";
+import Theme from "@/components/common/Theme";
+import Button from "@/components/common/buttons/Button";
 const navLinks = [
   { id: "home", label: "Home" },
   { id: "how", label: "How it works" },

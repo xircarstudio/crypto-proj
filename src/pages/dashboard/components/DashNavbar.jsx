@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiHome, FiUser, FiSettings, FiMenu, FiX } from "react-icons/fi";
-import Theme from "/src/components/common/Theme";
-import Button from "/src/components/common/buttons/Button";
-import Modal from "/src/components/ui/Modal";
+import Theme from "@/components/common/Theme";
+import Button from "@/components/common/buttons/Button";
+import Modal from "@/components/ui/Modal";
 import { FaEllipsisH } from "react-icons/fa";
 import NavPopup from "./NavPopup";
 

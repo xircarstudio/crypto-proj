@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import CryptoStack from "/src/assets/home/crypto-stack.svg";
-import Naira from "/src/assets/home/naira.svg";
-import MonkeyBnb from "/src/assets/home/monkey-bnb.png";
-import CatNaira from "/src/assets/home/cat-naira.png";
+import CryptoStack from "@/assets/home/crypto-stack.svg";
+import Naira from "@/assets/home/naira.svg";
+import MonkeyBnb from "@/assets/home/monkey-bnb.png";
+import CatNaira from "@/assets/home/cat-naira.png";
 import Navbar from "../components/Navbar";
-import Button from "/src/components/common/buttons/Button";
+import Button from "@/components/common/buttons/Button";
 const Hero = () => {
   return (
     <div className="min-h-[80%] lg:min-h-screen min-w-full bg-home-bg text-white px-6 pt-12 flex flex-col items-center justify-center text-center relative">
