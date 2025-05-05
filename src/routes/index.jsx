@@ -7,6 +7,7 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import Profile from "../pages/dashboard/profile/Profile";
 import About from "../pages/public/about/About";
+import Test from "../pages/public/home/Test";
 
 export default function Routing() {
   return (
@@ -23,6 +24,8 @@ export default function Routing() {
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+
+        <Route path="/test" element={<Test />} />
       </Routes>
     </div>
   );

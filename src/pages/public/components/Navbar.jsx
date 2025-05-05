@@ -117,7 +117,7 @@ const Navbar = () => {
 
       <div
         ref={sidebarRef}
-        className={`flex md:hidden fixed top-0 left-0 h-full w-64 bg-gray-900 text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
+        className={`flex md:hidden fixed top-0 left-0 h-full w-64 bg-home-bg text-white p-6 flex-col gap-6 transition-transform duration-300 z-40 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -137,7 +137,7 @@ const Navbar = () => {
           </div>
         ))}
         <Theme />
-        <Button type="primaryDark" onClick={() => alert("Button clicked!")}>
+        <Button type="home" onClick={() => alert("Button clicked!")}>
           Click Me
         </Button>
       </div>
