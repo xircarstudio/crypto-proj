@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import CryptoStack from "@/assets/home/crypto-stack.svg";
-import Naira from "@/assets/home/naira.svg";
-import MonkeyBnb from "@/assets/home/monkey-bnb.png";
-import CatNaira from "@/assets/home/cat-naira.png";
-import Navbar from "../components/Navbar";
+import CryptoStack from "/assets/home/crypto-stack.svg";
+import Naira from "/assets/home/naira.svg";
+import MonkeyBnb from "/assets/home/monkey-bnb.png";
+import CatNaira from "/assets/home/cat-naira.png";
 import Button from "@/components/common/buttons/Button";
 const Hero = () => {
   return (

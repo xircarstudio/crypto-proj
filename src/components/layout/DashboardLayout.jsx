@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import DashNavbar from "@/pages/dashboard/components/DashNavbar";
+import DashNavbar from "../../pages/dashboard/components/DashNavbar";
 
 const DashboardLayout = () => {
   return (

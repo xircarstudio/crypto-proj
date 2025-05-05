@@ -8,7 +8,7 @@ const testimonials = [
     content:
       "I needed a reliable way to convert my crypto earnings to naira for business expenses. Since discovering this platform 3 months ago, I've completed over 50 transactions without a single issue.",
     stars: 5,
-    img: "src/assets/home/nedu-L.png",
+    img: "/assets/home/nedu-L.png",
   },
   {
     name: "Amina T.",
@@ -16,7 +16,7 @@ const testimonials = [
     content:
       "As someone who gets paid in crypto by international clients, converting to naira used to be my biggest headache. Now it's literally just three clicks and I'm done. ",
     stars: 5,
-    img: "src/assets/home/amina.png",
+    img: "/assets/home/amina.png",
   },
   {
     name: "Oluwaseun D.",
@@ -24,7 +24,7 @@ const testimonials = [
     content:
       "The speed is what impresses me most. I've tried five different conversion services, and nothing comes close to how quickly I get my naira.",
     stars: 5,
-    img: "src/assets/home/segun-L.png",
+    img: "/assets/home/segun-L.png",
   },
   {
     name: "Ngozi E.",
@@ -32,7 +32,7 @@ const testimonials = [
     content:
       "I was skeptical about another crypto service, but the direct bank transfers won me over. No more juggling multiple apps and wallets just to access my own money. ",
     stars: 5,
-    img: "src/assets/home/ngozi.png",
+    img: "/assets/home/ngozi.png",
   },
   {
     name: "Tunde B.",
@@ -40,7 +40,7 @@ const testimonials = [
     content:
       "What stands out is the consistency. Every single transaction, regardless of size, is processed with the same efficiency.  I've recommended this platform to all my clients who deal with cryptocurrency,",
     stars: 5,
-    img: "src/assets/home/halima.png",
+    img: "/assets/home/halima.png",
   },
   {
     name: "Halima M.",
@@ -48,7 +48,7 @@ const testimonials = [
     content:
       "As a student receiving financial support from family abroad, this platform has been a lifesaver. The process is so simple that even my non-tech-savvy relatives can use it. ",
     stars: 5,
-    img: "src/assets/home/halima.png",
+    img: "/assets/home/halima.png",
   },
 
   {
@@ -57,7 +57,7 @@ const testimonials = [
     content:
       "Running a startup means I need financial flexibility and immediate access to funds. This platform has revolutionized how I manage crypto-to-fiat conversions.",
     stars: 5,
-    img: "src/assets/home/victor.png",
+    img: "/assets/home/victor.png",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function Row1() {
       >
         <div className="flex items-center gap-4">
           <img
-            src="src/assets/home/nedu-L.png"
+            src="/assets/home/nedu-L.png"
             alt="Victor"
             className="w-full h-full  object-cover"
           />

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@/components/common/buttons/Button";
+import Button from "/src/components/common/buttons/Button";
 
 const Cta = () => {
   return (
