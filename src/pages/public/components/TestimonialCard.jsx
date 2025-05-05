@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import BoredApe from "../../../assets/home/boredape.jpg";
 
 const testimonials = [
   {

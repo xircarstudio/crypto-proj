@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "../../../components/common/buttons/Button";
-import BoredApe from "../../../assets/home/boredape.jpg";
+import Button from "/src/components/common/buttons/Button";
+import BoredApe from "/src/assets/home/boredape.jpg";
 
 export default function How() {
   return (
